@@ -4,9 +4,10 @@ import styles from "../components/TaskList.module.css"
 
 interface Props {
     taskList: ITask[]
+    handleDel(id: number): void
 }
 
-export const TaskList = ({taskList}: Props) => {
+export const TaskList = ({taskList, handleDel}: Props) => {
     return(
         <>
             {taskList.length > 0 ? (
@@ -18,7 +19,7 @@ export const TaskList = ({taskList}: Props) => {
                         </div>
                         <div className={styles.actions}>
                             <i className="bi bi-pencil"></i>
-                            <i className="bi bi-trash"></i>
+                            <i className="bi bi-trash" onClick={() => handleDel(value.id)}></i>
                         </div>
                     </div>
                 ))
